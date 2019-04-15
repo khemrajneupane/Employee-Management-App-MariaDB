@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Employee List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet"
+	href="css/bootstrap-4.2.1-dist/css/bootstrap.min.css"
+	th:href="@{css/bootstrap-4.2.1-dist/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!-- Font Awesome cdn -->
+</head>
+<body>
+	<div style="text-align:center">
+		<div class = "jumbotron">
+			
+			<form th:action="@{/logout}" method="post">
+				<!-- <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" /> -->
+				<button style="margin-left: 85%" class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-sign-out" aria-hidden="true">Sign Out</i></button>
+
+			</form>
+			<h1>Employee List</h1>
+
+	<a href="/add" class="btn btn-primary"><i class="fa fa-plus"> Employees</i></a>
+
+	</div>
+
+        <div>
+            <form class="form-row" th:action="@{/search}" th:object="${employees}" method="get">
+                <input class="form-control bg-light col-md-9" type="text" placeholder=" type search word by fname" name="fname" th:value="${fname}" />
+
+                <button class="btn btn-primary col-md-3" type="submit"><i class="fa fa-search" aria-hidden="true">Search Employee</i></button>
+            </form>
+        </div>
+
+		<table class="table table-sm table-dark">
+			<thead>
+			<tr class="table-info">
+				<th  colspan="10"><h3 th:inline="text">Welcome
+				[[${#httpServletRequest.remoteUser}]]</h3></th>
+				</tr>
+				<tr>
+
+					<th>FirstName</th>
+					<th>FamilyName</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Address</th>
+					<th>Department</th>
+					<th>TaskName</th>
+					<th></th>
+					<th></th>
+					
+				<tr />
+			<thead />
+
+			<tbody>
+				<tr th:each="employee : ${employees}">
+
+					<td th:text="${employee.fname}"></td>
+					<td th:text="${employee.lname}"></td>
+					<td th:text="${employee.email}"></td>
+					<td th:text="${employee.phone}"></td>
+					<td th:text="${employee.address}"></td>
+					 <td th:text="${employee.department.name}"></td>
+					 <td th:text="${employee.task.name}"></td> 
+					<td><a
+						th:href="@{/delete/{id}(id=${employee.id})}"
+						class="btn btn-danger"><i class="fas fa-trash"> Trash</i></a></td>
+						
+					<td><a th:href="@{/edit/{id}(id=${employee.id})}"
+						class="btn btn-xs btn-info"><i class="fa fa-refresh" aria-hidden="true"> Update</i></a></td>
+					<td><a th:href="@{/update/{id}(id=${employee.id})}"
+						class="btn btn-xs btn-info"><i class="fa fa-history" aria-hidden="true"> History</i></a></td>	
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	<script src="https://use.fontawesome.com/0d80f7cc01.js"></script><!-- Font awesome runner script -->
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Adding Employees</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet"
+		href="css/bootstrap-4.2.1-dist/css/bootstrap.min.css"
+		th:href="@{css/bootstrap-4.2.1-dist/css/bootstrap.min.css}" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<!-- Font Awesome cdn -->
+</head>
+<body>
+
+	<div style="margin: 30px; text-align:center">
+		<div class = "jumbotron">
+		<h1>Adding Employees</h1>
+		<a href="/employeelist"	class="btn btn-info"  style="margin-left: 85%"><i class="fa fa-users" aria-hidden="true"> ShowAll</i></a>
+		</div>
+		
+		<form th:object="${employee}" th:action="@{save}" action="#"
+			method="post">
+			<div>
+				<h6>Fill up the following details. Add a new department, if you don't find one.</h6>
+			</div>
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+					<input type="text"
+						class="form-control" placeholder="enter first name"
+						th:field="*{fname}" />
+				</div>
+
+				<div class="col-md-4 mb-3">
+					<input type="text"
+						class="form-control" placeholder="enter last name"
+						th:field="*{lname}" />
+				</div>
+				<div class="col-md-4 mb-3">
+					<input type="text"
+						class="form-control" placeholder="enter email"
+						th:field="*{email}" />
+				</div>
+				<div class="col-md-4 mb-3">
+					<input type="text"
+						class="form-control" placeholder="enter phone"
+						th:field="*{phone}" />
+				</div>
+				<div class="col-md-4 mb-3">
+					<input type="text"
+						class="form-control" placeholder="enter address"
+						th:field="*{address}" />
+				</div>
+
+				<div class="col-md-5 mb-3">
+					<label for="task"><a class="btn btn-success" href="/addtask"><i class="fa fa-plus"> Task</i></a> </label><select class="form-control"
+							id="task" th:field="*{task}">
+							
+							<option th:each="tsk: ${task}" class="form-control"
+								th:value="${tsk.taskid}" th:text="${tsk.name}" th:selected= "${tsk.name}"></option>
+					</select>
+					</div>
+				
+				<div class="col-md-5 mb-3">	
+				<label for="task"><a class="btn btn-success" href="/addep"><i class="fa fa-plus"> Department</i></a> </label><select class="form-control"
+							id="department" th:field="*{department}">
+						
+							<option th:each="dep: ${department}"  class="form-control"
+								th:value="${dep.departmentid}" th:text="${dep.name}" th:selected="${dep.name}"></option>
+					</select>
+					
+				</div>
+				<div class="col-md-2 mb-3">
+						<button class="btn btn-primary" type="submit"><i class="fas fa-save mr-2"> Save</i></button>
+				</div>
+			</div>
+		
+
+		</form>
+
+	</div>
+</body>
+</html>

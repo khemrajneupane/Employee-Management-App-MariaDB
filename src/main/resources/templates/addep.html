@@ -1,0 +1,30 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Book List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet"
+	href="css/bootstrap-4.2.1-dist/css/bootstrap.min.css"
+	th:href="@{css/bootstrap-4.2.1-dist/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class = "jumbotron" style="text-align:center">
+	<a href="/employeelist"	class="btn btn-info"  style="margin-left: 85%"><i class="fa fa-users" aria-hidden="true"> ShowAll</i></a>
+	</div>
+	<div style="text-align:center">				
+		<h1>Adding Department</h1>
+		<form th:object="${department}" th:action="@{savedep}" action="#" method="post">
+			<div class="form-row ">
+				<input style="margin:0 auto" type="text" class="col-md-3 mb-2 form-control" id="title" placeholder="type new department" th:field="*{name}" />
+			</div>
+			<button class="btn btn-dark" type="submit"><i class="fa fa-plus mr-2"> AddDepartment</i></button>
+
+		</form>
+	
+	</div>
+<script src="https://use.fontawesome.com/0d80f7cc01.js"></script><!-- Font awesome runner script -->
+</body>
+</html>

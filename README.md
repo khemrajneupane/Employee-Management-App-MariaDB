@@ -1,1 +1,1 @@
-# employee-department-springboot-jpa-mariadb
+# emp-dep
