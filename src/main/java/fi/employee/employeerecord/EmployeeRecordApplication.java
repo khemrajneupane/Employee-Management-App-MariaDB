@@ -23,9 +23,25 @@ public class EmployeeRecordApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeRecordApplication.class, args);
 	}
+	private	EmployeeRepository emprepo;
+	private DepartmentRepository deprepo;
+//	private UserRepository usr;
+	private TaskRepository taskrepo;
+
+
+	public EmployeeRecordApplication(EmployeeRepository emprepo, DepartmentRepository deprepo, UserRepository usr, TaskRepository taskrepo) {
+		this.emprepo = emprepo;
+		this.deprepo = deprepo;
+//		this.usr = usr;
+		this.taskrepo = taskrepo;
+	}
 	@Bean
 	public ApplicationRunner demo(EmployeeRepository emprepo, DepartmentRepository deprepo, UserRepository usr, TaskRepository taskrepo) {
 		return (args) -> {
+			this.emprepo.deleteAll();
+			this.deprepo.deleteAll();
+			this.taskrepo.deleteAll();
+			
 			deprepo.save(new Department("Science"));
 			deprepo.save(new Department("IT"));
 			taskrepo.save(new Task("Swimming","2019","Swimming program",400,"Yes"));

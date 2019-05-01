@@ -35,10 +35,10 @@ private TaskRepository taskrepository;
 
 
 //Show all books
-//@RequestMapping(value="/login")
-//public String login() {	
-//    return "login";
-//}
+@RequestMapping(value={"/index", "/", "/login"})
+public String login() {	
+    return "login";
+}
 
 // Add new employee
 //@PreAuthorize("hasAuthority('ADMIN')")
