@@ -9,5 +9,4 @@ public interface EmployeeRepository extends CrudRepository <Employee, Long>{
 	List<Employee> findByFname(String fname);
 	List<Employee> findByFnameIgnoreCaseContaining(String fname);
 	
-	
 }

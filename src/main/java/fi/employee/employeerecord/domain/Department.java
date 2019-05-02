@@ -11,17 +11,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "Department")
+@Table(name = "Department")
 public class Department {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	private Long departmentid;
 	private String name;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
-	private List<Employee>employees;
-	
+	private List<Employee> employees;
+
 	public Department() {
 		super();
 	}
@@ -44,7 +43,7 @@ public class Department {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.toUpperCase();//all department names must be converted into upper cases.
 	}
 
 	public List<Employee> getEmployees() {

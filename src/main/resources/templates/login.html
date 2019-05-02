@@ -33,21 +33,21 @@
     <script type="text/javascript">
       // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: '/employeelist.html',
+        signInSuccessUrl: '../employeelist',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-          firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          //firebase.auth.GithubAuthProvider.PROVIDER_ID,
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+          //firebase.auth.PhoneAuthProvider.PROVIDER_ID,
           firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
         ],
         // tosUrl and privacyPolicyUrl accept either url string or a callback
         // function.
         // Terms of service url/callback.
-        tosUrl: '<your-tos-url>',
+        tosUrl: '../success',
         // Privacy policy url/callback.
         privacyPolicyUrl: function() {
           window.location.assign('<your-privacy-policy-url>');
@@ -61,10 +61,15 @@
     </script>
   </head>
   <body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container"></div>
+  <div style="text-align:center" class = "jumbotron"><p>Use any following possible method to login to <br /><strong>Employee-Management-Tools </strong> </p>
+    
+    <div id="firebaseui-auth-container"></div></div>
+    		<footer class = "jumbotron">
+			<diV style = "background-image:url('pic/chori.jpg'); height:100%; width:100%">
+					<p>&copy;Khem Raj Neupane 2018 Server Programming</p>
+				    <p>Student at <i><a href="https://www.haaga-helia.fi"> Haaga-Helia UAS</a>, Pasila</i></p>
+		     </diV>
+		</footer>
   </body>
     
 </html>
